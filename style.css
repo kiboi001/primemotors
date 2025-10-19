@@ -1,0 +1,298 @@
+:root{
+  --bg: #0b0b0b;
+  --card-bg: #0f0f10;
+  --muted: #bfc0c2;
+  --accent: #9fa6ad; /* grey-silver accent */
+  --white: #ffffff;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 12px;
+  --container-width: 1100px;
+  --gap: 18px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Basic page */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#0a0a0a 0%, #0f0f0f 100%);
+  color:var(--white);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+}
+
+/* Container */
+.container{
+  width:min(96%, var(--container-width));
+  margin:0 auto;
+  padding:24px 0;
+}
+
+/* Header */
+.site-header{
+  background:transparent;
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  position:sticky;
+  top:0;
+  z-index:40;
+  backdrop-filter: blur(6px);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,#1f1f1f,#2b2b2b);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--white);font-size:1.05rem;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.6), inset 0 1px rgba(255,255,255,0.02);
+}
+.brand h1{font-size:1rem;margin:0}
+.brand .sub{font-size:0.75rem;color:var(--muted);margin-top:2px}
+
+/* nav */
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;font-size:0.95rem;
+}
+.nav a:hover{color:var(--white)}
+
+/* Search section */
+.search-section{
+  margin:22px 0 8px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;
+  border-radius: var(--radius);
+  border:1px solid rgba(255,255,255,0.03);
+}
+.search-section h2{margin:0 0 12px 0;font-size:1.3rem;color:var(--white)}
+.controls{display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.search-input{display:flex;align-items:center;background:var(--glass);padding:6px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);width:360px;max-width:65%}
+.search-input input{
+  border:0;background:transparent;color:var(--white);padding:10px 12px;outline:none;font-size:0.95rem;width:100%;
+}
+#clear-search{background:transparent;border:0;color:var(--muted);width:36px;height:36px;border-radius:50%;cursor:pointer}
+
+/* Filters */
+.filters{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.filters select,input[type="number"]{
+  background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:var(--white);
+  min-width:140px;
+}
+.price-range input{width:110px}
+.btn{
+  background:transparent;border:1px solid rgba(255,255,255,0.08);padding:10px 14px;border-radius:10px;color:var(--white);cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+
+/* Cars grid */
+.cars-grid{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:var(--gap);
+}
+
+/* Card */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);
+  transition:transform 220ms ease, box-shadow 220ms ease;cursor:pointer;
+  display:flex;flex-direction:column;gap:10px;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.card-top{position:relative;height:140px;border-radius:10px;overflow:hidden;background:#1a1a1a;display:flex;align-items:center;justify-content:center}
+.card-top img{width:100%;height:100%;object-fit:cover;display:block}
+.card-info{display:flex;flex-direction:column;gap:6px}
+.card h3{margin:0;font-size:1.02rem}
+.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:0.9rem}
+.price{margin-left:auto;font-weight:700;color:var(--white)}
+
+/* small labels */
+.badge{
+  background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;font-size:0.8rem;color:var(--muted)
+}
+
+/* modal */
+.modal{display:none;position:fixed;inset:0;z-index:80;align-items:center;justify-content:center}
+.modal[aria-hidden="false"]{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.6),rgba(0,0,0,0.7))}
+.modal-content{position:relative;z-index:81;max-width:900px;width:94%;background:var(--card-bg);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal-close{position:absolute;right:12px;top:12px;background:transparent;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer}
+.modal-content img{width:100%;height:320px;object-fit:cover;border-radius:10px}
+.modal-content .details{padding:8px 0;color:var(--white)}
+.modal-content h3{margin:0 0 6px 0}
+.modal-content p{color:var(--muted);margin:6px 0}
+
+/* Footer */
+.site-footer{margin-top:36px;padding:18px;border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted)}
+
+/* Tiny responsiveness */
+@media (max-width:900px){
+  .modal-content{grid-template-columns:1fr}
+  .search-input{width:100%}
+  .filters{width:100%;justify-content:space-between}
+}
+@media (max-width:600px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:10px}
+  .nav{order:2}
+  .controls{flex-direction:column;gap:12px}
+  .filters select,input{min-width:unset;width:100%}
+}
+.cars-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #737577;
+}
+
+.cars-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cars-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.car-card {
+    background: rgb(126, 122, 122);
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.car-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.car-card .price {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.car-card button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.car-card button:hover {
+    background-color: #0056b3;
+}
+/* Contact Section */
+.contact-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-box {
+    background-color: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.contact-box:hover {
+    transform: scale(1.03);
+}
+
+.contact-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.contact-box p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+/* Navbar Styling */
+header {
+    background-color: #111; /* black */
+    padding: 15px 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+/* To prevent content hiding behind navbar */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+section {
+    padding-top: 20px;
+}

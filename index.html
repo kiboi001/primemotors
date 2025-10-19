@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prime Motors — Car App</title>  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">PM</div>
+        <div>
+          <h1>Prime Motors</h1>
+          <p class="sub">Modern car listings</p>
+        </div>
+      </div>
+      <nav class="nav">
+             </nav>
+    </div>
+  </header>
+  <main class="container">    
+    <section class="search-section">
+      <h2>Find your car</h2>
+      <div class="controls">
+        <div class="search-input">
+          <input id="global-search" type="search" placeholder="Search by brand, model or year..." />
+          <button id="clear-search" title="Clear search">✕</button>
+        </div>
+        <div class="filters">
+          <select id="brand-filter">
+            <option value="all">All brands</option>
+          </select>
+          <div class="price-range">
+            <input id="min-price" type="number" placeholder="Min price KSh" min="0" />
+            <input id="max-price" type="number" placeholder="Max price KSh" min="0" />
+          </div>
+          <select id="sort-select">
+            <option value="default">Sort: relevance</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="year-desc">Newest first</option>
+          </select>
+          <button id="apply-filters" class="btn">Apply</button>
+        </div>
+      </div>
+    </section>    
+    <section id="cars" class="cars-grid">      
+    </section>
+    <section class="featured-cars">
+    <h2>Featured Cars</h2>
+    <div id="car-gallery" class="car-gallery"></div>
+</section>
+  </main>  
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <button id="close-modal" class="modal-close" aria-label="Close">✕</button>
+      <div id="modal-body">        
+      </div>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Prime Motors</p>
+    </div>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Prime Motors</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+</html>
